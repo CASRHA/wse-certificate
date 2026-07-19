@@ -1,0 +1,329 @@
+/* =====================================================================
+   CASRHA FOUNDATION — Certificate Generator
+   style.css
+   Brand palette: dark navy + magenta (matches the certificate artwork).
+   ===================================================================== */
+
+/* ---------- Brand variables ---------- */
+:root {
+  --navy: #1b1b52;        /* deep navy from certificate corners */
+  --navy-deep: #12123b;   /* darker shade for gradients */
+  --magenta: #e6157a;     /* CASRHA magenta */
+  --magenta-deep: #c20f66;
+  --gold: #caa04d;        /* accent gold from the border lines */
+  --ink: #222;
+  --bg: #f4f5fb;
+  --card-bg: #ffffff;
+  --radius: 16px;
+  --shadow: 0 12px 40px rgba(27, 27, 82, 0.14);
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:
+    radial-gradient(1200px 500px at 100% -10%, rgba(230, 21, 122, 0.08), transparent 60%),
+    radial-gradient(1000px 500px at -10% 110%, rgba(27, 27, 82, 0.10), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  background: linear-gradient(120deg, var(--navy-deep), var(--navy) 55%, var(--magenta));
+  color: #fff;
+  padding: 2.2rem 1rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  margin: 0;
+}
+
+.brand-subtitle {
+  margin: 0.35rem 0 0;
+  opacity: 0.9;
+  font-weight: 400;
+  font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+}
+
+/* ---------- Cards ---------- */
+.portal-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+.portal-card .card-body { padding: 1.6rem; }
+
+.card-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+
+.card-hint,
+.card-heading + #previewPlaceholder,
+.today-note {
+  color: #6a6a80;
+  font-size: 0.9rem;
+}
+
+.card-hint { margin-bottom: 1.25rem; }
+
+/* ---------- Form fields ---------- */
+.form-label {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1.5px solid #e2e2ee;
+  padding: 0.7rem 0.9rem;
+}
+
+.form-control:focus {
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 0.2rem rgba(230, 21, 122, 0.15);
+}
+
+/* Selects match the text inputs. */
+.form-select {
+  border-radius: 10px;
+  border: 1.5px solid #e2e2ee;
+  padding: 0.7rem 0.9rem;
+}
+.form-select:focus {
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 0.2rem rgba(230, 21, 122, 0.15);
+}
+
+/* Required-field asterisk. */
+.req {
+  color: var(--magenta);
+  font-weight: 700;
+}
+
+/* Inline grey hint next to a label, e.g. "(WhatsApp preferred)". */
+.hint-inline {
+  font-weight: 400;
+  color: #8a8aa0;
+  font-size: 0.85em;
+}
+
+/* Declaration checkbox block. */
+.declaration-check {
+  background: #fafaff;
+  border: 1.5px solid #e2e2ee;
+  border-radius: 10px;
+  padding: 0.85rem 0.9rem 0.85rem 2.4rem;
+}
+.declaration-check .form-check-input {
+  border: 1.5px solid #c9c9de;
+  margin-left: -1.5rem;
+}
+.declaration-check .form-check-input:checked {
+  background-color: var(--magenta);
+  border-color: var(--magenta);
+}
+.declaration-check .form-check-input:focus {
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 0.2rem rgba(230, 21, 122, 0.15);
+}
+.declaration-check .form-check-input.is-invalid {
+  border-color: #d33;
+}
+.declaration-check .form-check-label {
+  font-size: 0.86rem;
+  color: #4a4a63;
+  line-height: 1.45;
+}
+.declaration-error {
+  color: #d33;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+/* Telegram outreach-pictures block (optional but encouraged). */
+.telegram-box {
+  background: #f2f9ff;
+  border: 1.5px solid #cfe6f7;
+  border-radius: 10px;
+  padding: 0.85rem 0.9rem;
+}
+.telegram-title {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+.telegram-text {
+  font-size: 0.86rem;
+  color: #4a4a63;
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+.telegram-box .form-label {
+  font-size: 0.88rem;
+}
+.telegram-link {
+  color: #0088cc; /* Telegram blue */
+  font-weight: 600;
+  text-decoration: underline;
+}
+.telegram-link:hover { color: #006699; }
+
+.today-note {
+  margin: 0.25rem 0 1rem;
+}
+.today-note span { color: var(--navy); font-weight: 600; }
+
+/* ---------- Generate button (animated) ---------- */
+.btn-generate {
+  background: linear-gradient(120deg, var(--navy), var(--magenta));
+  background-size: 200% 100%;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 12px;
+  letter-spacing: 0.3px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-position 0.5s ease;
+  box-shadow: 0 8px 22px rgba(230, 21, 122, 0.28);
+}
+
+.btn-generate:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(230, 21, 122, 0.38);
+  color: #fff;
+}
+
+.btn-generate:active { transform: translateY(0); }
+
+.btn-generate:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* subtle pulse to draw attention */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 8px 22px rgba(230, 21, 122, 0.28); }
+  50%      { box-shadow: 0 8px 30px rgba(27, 27, 82, 0.35); }
+}
+.btn-generate:not(:disabled) { animation: pulseGlow 2.8s ease-in-out infinite; }
+
+/* ---------- Preview area ---------- */
+.preview-placeholder {
+  border: 2px dashed #d5d5e6;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: #8a8aa0;
+  background: #fafaff;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(27, 27, 82, 0.15);
+  background: #fff;
+  animation: fadeInUp 0.5s ease;
+}
+
+/* Canvas scales responsively; its internal resolution stays high. */
+#certCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Download buttons ---------- */
+.download-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.btn-download {
+  flex: 1 1 160px;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn-download:hover { transform: translateY(-2px); filter: brightness(1.05); color: #fff; }
+
+.btn-pdf  { background: var(--navy); }
+.btn-jpeg { background: var(--magenta); }
+
+/* ---------- Toast notifications ---------- */
+.toast-stack {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: min(92vw, 360px);
+}
+
+.app-toast {
+  background: #fff;
+  border-left: 5px solid var(--navy);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  font-size: 0.9rem;
+  animation: toastIn 0.3s ease;
+}
+.app-toast.success { border-left-color: #1ca35a; }
+.app-toast.error   { border-left-color: #d33; }
+.app-toast.info    { border-left-color: var(--magenta); }
+.app-toast strong  { display: block; margin-bottom: 0.15rem; color: var(--navy); }
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  margin-top: auto;
+  padding: 1.3rem 1rem;
+  color: #6a6a80;
+  font-size: 0.85rem;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 575.98px) {
+  .portal-card .card-body { padding: 1.2rem; }
+  .app-header { padding: 1.6rem 1rem; }
+}
