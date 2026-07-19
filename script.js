@@ -35,9 +35,7 @@ const FORM_ENTRIES = {
   report:        "entry.873739832",
   trainingDate:  "entry.1522668198",
   declaration:   "entry.2130958736",
-  // Telegram outreach-pictures question (optional field). Leave "" until a
-  // matching question is added to the Google Form; empty IDs are skipped.
-  telegramUpload: ""
+  telegramUpload: "entry.1177266440"
 };
 
 /*
